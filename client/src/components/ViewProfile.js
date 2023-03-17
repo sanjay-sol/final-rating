@@ -12,7 +12,7 @@ const ViewProfile = () => {
   const params = useParams();
   const [rating, setrating] = useState("");
   const [comment, setcomment] = useState("No Advice from me");
-  const [likes, setlikes] = useState("");
+  const [likes, setlikes] = useState("No");
   const [giver, setgiver] = useState("");
 
   const fetchData = () => {
@@ -64,7 +64,7 @@ const ViewProfile = () => {
 
   return (
     <>
-      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-blue-700">
+      <nav className=" bg-white flex justify-between py-2 pl-2  ">
         <img
           className="h-20 rounded"
           src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
@@ -78,7 +78,7 @@ const ViewProfile = () => {
             <Link to="/privacy">Privacy</Link>
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
-            <Link to="/login">Logout</Link>
+            <Link to="/login" onClick={() => localStorage.removeItem("token")} >Logout</Link>
           </li>
         </ul>
       </nav>
@@ -161,7 +161,7 @@ const ViewProfile = () => {
                   className="w-6 h-6 rounded"
                   onClick={() => setlikes("Yes")}
                 />
-                <span className="ml-2">Hot </span>
+                <span className="ml-2 font-extrabold text-orange-600">Hot </span>
               </label>
             </div>
           </div>
@@ -169,7 +169,7 @@ const ViewProfile = () => {
             <div className="mt-2">
               <label className="inline-flex items-center">
                 <input type="checkbox" className="w-6 h-6 rounded" />
-                <span className="ml-2">Not</span>
+                <span className="ml-2 font-extrabold text-blue-600">Not</span>
               </label>
             </div>
           </div>

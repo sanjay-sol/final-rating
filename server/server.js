@@ -58,7 +58,7 @@ app.post("/register", async (req, res) => {
       confirmpassword,
     });
     newUser.save();
-    return res.status(200).send("User added Suucessfully");
+    return res.status(200).send("User added Successfully");
   } catch (error) {
     console.log("error in register", error);
     return res.status(400).send("Unable to add User");

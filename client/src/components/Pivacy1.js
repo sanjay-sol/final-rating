@@ -36,7 +36,7 @@ const Privacy1 = () => {
             In our Website, we take your privacy and security seriously. We
             understand that your personal information is sensitive and should be
             handled with utmost care. When rating the users based on their
-            details ams stuff, we assure you that we do not have access to your
+            details and stuff, we assure you that we do not have access to your
             password because we use bcrypt{" "}
             <a
               href="https://github.com/BcryptNet/bcrypt.net"
@@ -45,7 +45,7 @@ const Privacy1 = () => {
               rel="noreferrer"
             >
               {" "}
-              .(bcrypt)
+              (bcrypt)
             </a>{" "}
             algorithm to hash your passwords. This means that even we cannot
             decode your password. Additionally, we will never reveal your full

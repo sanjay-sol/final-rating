@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 const propTypes = {};
 
@@ -18,14 +18,21 @@ const Register = () => {
   const [value, setvalue] = useState("");
   const [password1, setPassword1] = useState("");
   const [confirmpassword1, setConfirmpassword1] = useState("");
+  const [auth , setAuth] = useState(false);
 
   const getValue = () => {
     var selectedvalue = document.getElementById("mySelect").value;
     setvalue(selectedvalue);
+
+
+
   };
   // const handleChange = (e) =>{
   //     setdata({...data,[e.target.name]:e.target.value})
   // }
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -43,18 +50,24 @@ const Register = () => {
       .post("http://localhost:3001/register", user)
       .then((res) => {
         alert(res.data);
+        if(res.data === "User added Successfully"){
+          setAuth(true);
+        }
+       
         // setAuth(true);
       })
       .catch((err) => {
         alert(err.response.data);
       });
-    //     axios.post('http://localhost:3001/register',user).then((res) => {
-    //       alert(res.data);
-    //       // setAuth(true);
-    //   }).catch((err)=>{
-    //     alert(err.response.data);
-    //   })
   };
+   
+  if (auth) {
+    return <Navigate to="/redirects" />;
+  }
+
+
+
+  
   return (
     <>
       <nav className=" bg-white flex justify-between py-2 pl-2 ">
@@ -175,6 +188,7 @@ const Register = () => {
               <option value="EIE">EIE</option>
               <option value="CS-IT">CS-IT</option>
               <option value="CS">CS</option>
+              <option value="CS">IT</option>
               <option value="OTHERS">Others</option>
             </select>
 

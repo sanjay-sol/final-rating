@@ -16,7 +16,7 @@ const Privacy = () => {
           src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
           alt="img"
         />
-        <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
+        <ul className="px-4 py-4 mt-4 flex space-x-12 justify-end ">
           <li className="cursor-pointer font-extrabold hover:text-indigo-900">
             <Link to="/myprofile">My Profile</Link>
           </li>
@@ -39,7 +39,7 @@ const Privacy = () => {
             In our Website, we take your privacy and security seriously. We
             understand that your personal information is sensitive and should be
             handled with utmost care. When rating the users based on their
-            details ams stuff, we assure you that we do not have access to your
+            details and stuff, we assure you that we do not have access to your
             password because we use bcrypt{" "}
             <a
               href="https://github.com/BcryptNet/bcrypt.net"
@@ -48,7 +48,7 @@ const Privacy = () => {
               rel="noreferrer"
             >
               {" "}
-              .(bcrypt)
+              (bcrypt)
             </a>{" "}
             algorithm to hash your passwords. This means that even we cannot
             decode your password. Additionally, we will never reveal your full

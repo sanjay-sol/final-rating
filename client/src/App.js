@@ -8,6 +8,7 @@ import MyProfile from "./components/MyProfile";
 import PageNotFound from "./components/PageNotFound";
 import Privacy1 from "./components/Pivacy1";
 import Privacy from "./components/Privacy";
+import Redirects from "./components/Redirects";
 import Register from "./components/Register";
 import ViewProfile from "./components/ViewProfile";
 
@@ -24,6 +25,8 @@ function App() {
       <Route path="/myprofile" element={<MyProfile/>}/>
       <Route path="/privacy" element={<Privacy/>}/>
       <Route path="/privacy1" element={<Privacy1/>}/>
+      <Route path="/redirects" element={<Redirects/>}/>
+
       <Route path="/viewprofile/:fullname/:id" element={<ViewProfile/>}/>
 
 

@@ -40,7 +40,7 @@ const MyProfile = () => {
 
   return (
     <>
-      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-blue-700">
+      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 ">
         <img
           className="h-20 rounded"
           src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
@@ -178,7 +178,7 @@ const MyProfile = () => {
                 </span>
               </h3>
               <div className="relative pl-12">
-                <p className="text-black font-extrabold">Advice : </p>
+                <p className="text-black font-extrabold underline">Advice : </p>
                 <span className="mt-2 text-sm text-red-900 sm:text-base lg:text-sm xl:text-base">
                   {review.comment}
                 </span>
