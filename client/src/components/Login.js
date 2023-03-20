@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const propTypes = {};
 
 const defaultProps = {};
@@ -29,7 +31,17 @@ const Login = () => {
         setAuth(true);
       })
       .catch((err) => {
-        alert(err.response.data);
+        // alert(err.response.data);
+        toast.error(err.response.data, {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
       });
   };
   if (auth) {
@@ -111,6 +123,7 @@ const Login = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </form>
     </>
   );

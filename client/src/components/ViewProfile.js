@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import Alert from "./Alert";
 const propTypes = {};
 
 const defaultProps = {};
@@ -14,6 +17,8 @@ const ViewProfile = () => {
   const [comment, setcomment] = useState("No Advice from me");
   const [likes, setlikes] = useState("No");
   const [giver, setgiver] = useState("");
+  // const [alert, setAlert] = useState(null);
+
 
   const fetchData = () => {
     const token = localStorage.getItem("token");
@@ -55,7 +60,21 @@ const ViewProfile = () => {
         },
       })
       .then((res) => {
-        alert(res.data);
+        // alert(res.data);
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 1999,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        // setAlert({
+        //   message: res.data ,
+        //   type: 'success',
+        // });
       })
       .catch((error) => {
         console.log(error);
@@ -82,6 +101,18 @@ const ViewProfile = () => {
           </li>
         </ul>
       </nav>
+      {/* {alert && (
+  <div className={`bg-red-600 border-${alert.type}-400 text-${alert.type}-700 px-4 py-3 rounded relative`} role="alert">
+    <strong className="font-bold"  >{alert.type}!</strong>
+    <span className="block sm:inline">{alert.message}</span>
+    <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg className={`fill-current h-6 w-6 text-${alert.type}-500`} role="button" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20">
+        <title>Close</title>
+        <path d="M14.348 5.652a1 1 0 011.414 0l3.536 3.536a1 1 0 010 1.414l-3.536 3.536a1 1 0 01-1.414-1.414L15.586 10l-3.536-3.536a1 1 0 010-1.414zM5.652 5.652a1 1 0 010 1.414L2.115 10l3.537 3.536a1 1 0 11-1.414 1.414L.794 11.414a1 1 0 010-1.414L4.238 5.652a1 1 0 011.414 0z"/>
+      </svg>
+    </span>
+  </div>
+)} */}
 
       <a
         href="/dashboard"
@@ -196,6 +227,7 @@ const ViewProfile = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
 
       {/* <Link to="/login"><span>Dashbo</span> </Link> */}
     </>

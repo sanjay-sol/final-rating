@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import Alert from "./Alert";
 const propTypes = {};
 
 const defaultProps = {};
@@ -49,7 +52,18 @@ const Register = () => {
     axios
       .post("http://localhost:3001/register", user)
       .then((res) => {
-        alert(res.data);
+        // toast(res.data);
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 1999,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+       
         if(res.data === "User added Successfully"){
           setAuth(true);
         }
@@ -57,7 +71,17 @@ const Register = () => {
         // setAuth(true);
       })
       .catch((err) => {
-        alert(err.response.data);
+        // toast(err.response.data);
+        toast.warn(err.response.data, {
+          position: "top-center",
+          autoClose: 1999,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
       });
   };
    
@@ -235,7 +259,9 @@ const Register = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </form>
+      
     </>
   );
 };

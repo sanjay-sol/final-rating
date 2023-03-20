@@ -15,7 +15,7 @@ const Redirects = () => {
                 <span className="block"><span className="block mt-1 text-red-600 lg:inline lg:mt-0" data-primary="purple-500">Let's goooooo!!!!</span></span>
             </h1>
             <p className="w-full mx-auto text-base text-left text-gray-500  sm:text-lg lg:text-2xl md:max-w-3xl md:text-center">
-                Yo ! Check this out ....
+               You are good to Go ....
             </p>
             <div className="relative flex flex-col justify-center md:flex-row md:space-x-4">
             <a href="/login" className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-black transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-red-500 group">
