@@ -56,10 +56,10 @@ const Login = () => {
           alt="img"
         />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
-          <li className="cursor-pointer">
+          <li className="cursor-pointer font-bold ">
             <Link to="/">Home</Link>
           </li>
-          <li className="cursor-pointer">
+          <li className="cursor-pointer font-bold">
             <Link to="/privacy1">Privacy</Link>{" "}
           </li>
         </ul>
@@ -83,7 +83,7 @@ const Login = () => {
             data-form-type="other"
           >
             <div className="relative">
-              <label className="font-medium text-gray-900">Email</label>
+              <label className="font-medium text-gray-900">Email<span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="email"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -98,7 +98,7 @@ const Login = () => {
               />
             </div>
             <div className="relative">
-              <label className="font-medium text-gray-900">Password</label>
+              <label className="font-medium text-gray-900">Password<span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="password"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"

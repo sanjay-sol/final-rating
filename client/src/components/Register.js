@@ -101,10 +101,10 @@ const Register = () => {
           alt="img"
         />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
-          <li className="cursor-pointer">
+          <li className="cursor-pointer font-bold ">
             <Link to="/">Home</Link>
           </li>
-          <li className="cursor-pointer">
+          <li className="cursor-pointer font-bold ">
             <Link to="/privacy1">Privacy</Link>{" "}
           </li>
         </ul>
@@ -113,7 +113,7 @@ const Register = () => {
         <div className="flex flex-col items-start justify-start w-screen h-full p-10 lg:p-16 xl:p-24 tails-selected-element">
           <h4 className="w-full text-3xl font-bold">Register</h4>
           <p className="text-lg text-gray-500">
-            or, Already have an Account.?{" "}
+            wait !! , I Already have an Account..!!{" "}
             <a
               href="/login"
               className="text-blue-600 underline"
@@ -128,7 +128,7 @@ const Register = () => {
             data-form-type="other"
           >
             <div className="relative">
-              <label className="font-medium text-gray-900">Full Name</label>
+              <label className="font-medium text-gray-900">Full Name<span className="text-xl text-red-600 " > * </span> </label>
               <input
                 type="text"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -141,7 +141,7 @@ const Register = () => {
               />
             </div>
             <div className="relative">
-              <label className="font-medium text-gray-900">User Name</label>
+              <label className="font-medium text-gray-900">User Name <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="text"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -155,7 +155,7 @@ const Register = () => {
             </div>
             <div className="relative">
               <label className="font-medium text-gray-900">
-                Instagram Username (optional)
+                Instagram Username 
               </label>
               <input
                 type="text"
@@ -169,7 +169,7 @@ const Register = () => {
               />
             </div>
             <div className="relative">
-              <label className="font-medium text-gray-900">Age</label>
+              <label className="font-medium text-gray-900">Age <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="number"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -182,7 +182,7 @@ const Register = () => {
               />
             </div>
             <div className="relative">
-              <label className="font-medium text-gray-900">Email</label>
+              <label className="font-medium text-gray-900">Email <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="email"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -196,12 +196,14 @@ const Register = () => {
                 data-form-type="email"
               />
             </div>
-            <p className="font-medium text-gray-900">Section</p>
+            <p className="font-medium text-gray-900">Section <span className="text-xl text-red-600 " > * </span></p>
             <select
               id="mySelect"
-              className="border-2 w-16 h-9 rounded"
+              className="border-2 w-44 h-10 bg-gray-200 rounded"
               onChange={getValue}
             >
+              <option value="CSE">Select</option>
+
               <option value="CSE">CSE</option>
               <option value="DS">DS</option>
               <option value="AI-ML">AI-ML</option>
@@ -217,7 +219,7 @@ const Register = () => {
             </select>
 
             <div className="relative">
-              <label className="font-medium text-gray-900">Password</label>
+              <label className="font-medium text-gray-900">Password <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="password"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -233,7 +235,7 @@ const Register = () => {
             </div>
             <div className="relative">
               <label className="font-medium text-gray-900">
-                Confirm Password
+                Confirm Password<span className="text-xl text-red-600 " > * </span>
               </label>
               <input
                 type="password"

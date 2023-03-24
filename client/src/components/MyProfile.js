@@ -40,10 +40,10 @@ const MyProfile = () => {
 
   return (
     <>
-      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 ">
+      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
         <img
           className="h-20 rounded"
-          src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
+          src="images/hn2.png"
           alt="img"
         />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
@@ -55,7 +55,7 @@ const MyProfile = () => {
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
             <Link to="/login" onClick={() => localStorage.removeItem("token")}>
-              Logout
+             ⛔︎ Logout
             </Link>
           </li>
         </ul>
@@ -69,7 +69,7 @@ const MyProfile = () => {
         <span className="absolute inset-0 w-full h-full bg-red-500 border-2 border-black group-hover:bg-black"></span>
         <span className="relative text-black group-hover:text-white">
           {" "}
-          Back to Dashboard
+          ⬅ Back to Dashboard
         </span>
       </a>
       {data && (
@@ -86,7 +86,7 @@ const MyProfile = () => {
           <div className="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
             <div className="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
               <div className="bg-orange-500  items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                <span>Your Profile</span>
+                <span>⌘ Your Profile</span>
               </div>
               <h1 className="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">
                 {" "}

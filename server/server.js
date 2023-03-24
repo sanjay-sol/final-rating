@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-
+const bcrypt = require('bcryptjs');
 require("dotenv").config();
 
 const registeruser = require("./usermodel");
@@ -74,7 +74,8 @@ app.post("/login", async (req, res) => {
     if (!exist) {
       return res.status(400).send("Email does not exist");
     }
-    if (exist.password !== password) {
+    const isMatch = await bcrypt.compare(password , exist.password);
+    if (!isMatch) {
       return res.status(400).send("Invalid password");
     }
     let payload = {

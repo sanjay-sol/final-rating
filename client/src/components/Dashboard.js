@@ -11,6 +11,7 @@ const defaultProps = {};
 const Dashboard = () => {
   const [data, setdata] = useState([]);
   const [search , setSearch] = useState("");
+  
   useEffect(() => {
     axios
       .get("http://localhost:3001/allprofiles", {
@@ -46,13 +47,13 @@ const Dashboard = () => {
 
   return (
     <>
-      <nav className=" container flex flex-wrap items-center justify-between mx-auto ">
+      <nav className="   bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
         {/* <span className="text-4xl flex items-center mx-3 font-extrabold text- ">
           HOT or NOT
         </span> */}
         <img
           className="h-20 rounded"
-          src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
+          src="images/hn2.png"
           alt="img"
         />
         
@@ -65,7 +66,7 @@ const Dashboard = () => {
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
             <Link to="/login" onClick={() => localStorage.removeItem("token")}>
-              Logout
+              ⛔︎ Logout
             </Link>
           </li>
         </ul>
@@ -73,8 +74,8 @@ const Dashboard = () => {
       <input
         type="text"
         value={search}
-        placeholder="Search by Name  🔎 "
-        className="w-full h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200  font-medium text-indigo-800 focus:outline-none tails-selected-element border-2 border-slate-600 rounded-2xl"
+        placeholder="Search by Fullname  🔎 "
+        className="w-full h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200 text-lg   font-medium placeholder:text-slate-400 focus:outline-none tails-selected-element border-2 border-slate-600 rounded-2xl"
         data-primary="indigo-800"
         onChange={(e) => setSearch(e.target.value)}
         data-dashlane-rid="ecf7b122e81b2461"
@@ -82,12 +83,15 @@ const Dashboard = () => {
         data-kwimpalaid="1678604518890-0"
         data-form-type="text"
       ></input>
-      <p className="text-2xl font-semibold ml-14 mt-4  ">
+      {/* <p className="text-2xl font-semibold ml-14 mt-4  ">
         Total Users :{" "}
         <span className="text-2xl font-semibold  text-purple-600 hover:text-red-400">
           {totalusers}
         </span>{" "}
-      </p>
+      </p> */}
+      <div className="bg-red-500 hover:bg-red-600  items-center m-5 p-6 py-4 leading-none rounded text-lg  uppercase text-white font-bold inline-block">
+                <span>  ✓ Total Users : <span className="text-xl underline text-neutral-900" > {totalusers}</span>  </span>
+              </div>
       <div className="">
         <div className="grid  gap-6 m-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* ////// */}
@@ -115,7 +119,7 @@ const Dashboard = () => {
                     <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
                       <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-violet-300"></span>
                       <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-                      <span className="relative">Review Now </span>
+                      <span className="relative"> <span className="font-extrabold text-2xl " >⇱</span> Review Now  </span>
                     </span>
                     <span
                       className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
@@ -148,7 +152,7 @@ const Dashboard = () => {
                       alt=""
                       className="w-14 ml-1 mb-2"
                     />
-                    <p>
+                    <p className="text-gray-500">
                       <b className="text-gray-600">
                         {(Math.random() * 10).toFixed(1)}
                       </b>
@@ -160,14 +164,16 @@ const Dashboard = () => {
                     href={`https://www.instagram.com/${profile.instaId}/`}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 block p-5 text-center text-gray-300 transition duration-200 ease-out hover:bg-gray-100 hover:text-gray-500"
+                    className="flex-1 block p-5  text-center text-gray-300 transition duration-200 ease-out hover:bg-gray-100 hover:text-gray-500"
                   >
                     <img
                       src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-social-platform-icon-png-image_6315976.png"
                       alt=""
                       className="w-12 ml-1 mt-3"
                     />
+                    
                   </a>
+                  
                 </div>
               </div>
             ))

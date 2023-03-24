@@ -83,10 +83,10 @@ const ViewProfile = () => {
 
   return (
     <>
-      <nav className=" bg-white flex justify-between py-2 pl-2  ">
+      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
         <img
           className="h-20 rounded"
-          src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
+          src="/images/hn2.png"
           alt="img"
         />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
@@ -97,7 +97,7 @@ const ViewProfile = () => {
             <Link to="/privacy">Privacy</Link>
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
-            <Link to="/login" onClick={() => localStorage.removeItem("token")} >Logout</Link>
+            <Link to="/login" onClick={() => localStorage.removeItem("token")} > ⛔︎ Logout</Link>
           </li>
         </ul>
       </nav>
@@ -122,7 +122,7 @@ const ViewProfile = () => {
         <span className="absolute inset-0 w-full h-full bg-red-500 border-2 border-black group-hover:bg-black"></span>
         <span className="relative text-black group-hover:text-white">
           {" "}
-          Back to Dashboard
+          ⬅ Back to Dashboard
         </span>
       </a>
 
@@ -139,7 +139,7 @@ const ViewProfile = () => {
         <div className="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
           <div className="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
             <div className="bg-pink-500  items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-              <span>profile</span>
+              <span>⌘ profile</span>
             </div>
             <h1 className="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">
               <a href="#_" className="">
@@ -150,7 +150,7 @@ const ViewProfile = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start w-screen h-full p-10 lg:p-16 xl:p-24 tails-selected-element bg-violet-200">
+      <div className="flex flex-col items-start justify-start w-screen h-full p-10 lg:p-16 xl:p-24 tails-selected-element bg-gray-200">
         <h4 className="w-full text-3xl font-bold">Give Your Review</h4>
         <div
           className="relative w-full mt-10 space-y-8"

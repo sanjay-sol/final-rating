@@ -11,18 +11,18 @@ const defaultProps = {};
 const Home = () => {
   return (
     <>
-      <nav className="  container flex flex-wrap items-center justify-between mx-auto ">
+      <nav className="   flex justify-between py-2 pl-2 border-b-2 border-b-white bg-white ">
         <img
           className="h-20 rounded"
-          src="https://www.datingscout.co.uk/b6/image/upload/ds/upload/reviews/ENG/hot-or-not/hot-or-not-logo.jpg"
+          src="images/hn2.png"
           alt="img"
         />
 
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
-          <li className="cursor-pointer">
+          <li className="cursor-pointer font-extrabold ">
             <Link to="/">Home</Link>
           </li>
-          <li className="cursor-pointer text-red-600 font-extrabold hover:text-opacity-75 text-xl ">
+          <li className="cursor-pointer text-red-600 font-extrabold hover:text-opacity-75 text-2xl ">
             <Link to="/privacy1">Security</Link>{" "}
           </li>
         </ul>
@@ -71,7 +71,7 @@ const Home = () => {
                       className="relative inline-block px-4 py-3 font-medium group"
                     >
                       <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                      <span className="absolute inset-0 w-full h-full bg-red-600 border-2 border-black group-hover:bg-black"></span>
+                      <span className="absolute inset-0 w-full h-full bg-red-500 border-2 border-black group-hover:bg-black"></span>
                       <span className="relative text-black font-extrabold group-hover:text-white">
                         Login
                       </span>
@@ -83,7 +83,7 @@ const Home = () => {
                       className="relative inline-block px-4 py-3 font-medium group"
                     >
                       <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                      <span className="absolute inset-0 w-full h-full bg-sky-600 border-2 border-black group-hover:bg-black"></span>
+                      <span className="absolute inset-0 w-full h-full bg-sky-500 border-2 border-black group-hover:bg-black"></span>
                       <span className="relative text-black font-extrabold group-hover:text-white">
                         Register
                       </span>
@@ -99,7 +99,7 @@ const Home = () => {
                 data-rounded-max="rounded-full"
               >
                 <img
-                  src="https://i0.wp.com/www.androidmag.de/wp-content/uploads/2014/06/hotornot.jpg"
+                  src="images/hn3.webp"
                   alt="img"
                   className="w-96 rounded-md shadow-2xl shadow-black hover:shadow-xl hover:shadow-red-500"
                 />
