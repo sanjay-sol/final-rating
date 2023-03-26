@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <nav className="   bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
+      <nav className="   bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white  ">
         {/* <span className="text-4xl flex items-center mx-3 font-extrabold text- ">
           HOT or NOT
         </span> */}
@@ -99,13 +99,14 @@ const Dashboard = () => {
             data.filter(profile => profile.fullname.toLowerCase().includes(search.toLowerCase())).map((profile) => (
               <div className="w-full border mt-5 border-gray-600 rounded-lg shadow-black shadow-lg hover:shadow-violet-600 hover:shadow-2xl">
                 <div className="flex flex-col items-center justify-center p-10">
-                  <Link to="/viewprofile">
+                <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${profile.versionid}/${profile.publicid}.${profile.format}`} target="_blank" rel="noreferrer" className="block">
+
                     <img
-                      className="w-32 h-32 mb-6 rounded-full"
-                      src="https://cdn.devdojo.com/images/june2021/headshot2.jpg"
+                      className="w-40 h-40 mb-6 rounded-full"
+                      src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${profile.versionid}/${profile.publicid}.${profile.format}`}
                       alt="Profile"
                     />
-                  </Link>
+                  </a>
                   <h2 className="text-lg font-medium">{profile.fullname}</h2>
                   <p className="text-gray-600">Age : {profile.age} </p>
 
@@ -113,7 +114,7 @@ const Dashboard = () => {
                     Section : {profile.section}
                   </p>
                   <a
-                    href={`/viewprofile/${profile.fullname}/${profile._id}`}
+                    href={`/viewprofile/${profile.fullname}/${profile._id}/${profile.versionid}/${profile.publicid}/${profile.format}`}
                     className="relative inline-block text-lg group"
                   >
                     <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">

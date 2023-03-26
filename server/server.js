@@ -25,6 +25,9 @@ app.post("/register", async (req, res) => {
       fullname,
       username,
       instaId,
+      versionid,
+      publicid,
+      format,
       age,
       email,
       section,
@@ -47,10 +50,17 @@ app.post("/register", async (req, res) => {
     if (password != confirmpassword) {
       return res.status(400).send("Passswords doesn't match");
     }
+    if (!fullname || !username || !age || !email || !section || !password || !confirmpassword ) {
+      return res.status(400).send("Fill all Fields");
+
+    }
     let newUser = new registeruser({
       fullname,
       username,
       instaId,
+      versionid,
+      publicid,
+      format,
       age,
       email,
       section,
