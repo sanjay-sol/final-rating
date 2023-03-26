@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { Tooltip } from "@material-tailwind/react";
 const propTypes = {};
 
 const defaultProps = {};
@@ -71,12 +72,15 @@ const Dashboard = () => {
           </li>
         </ul>
       </nav>
-      
+      <div className="bg-red-500 hover:bg-red-600  items-center m-5 p-6 py-4 leading-none rounded text-lg  uppercase text-white font-bold inline-block">
+                <span>  ✓ Total Users : <span className="text-xl text-neutral-900" > {totalusers}</span>  </span>
+              </div>
+            
       <input
         type="text"
         value={search}
         placeholder="Search by Fullname  🔎 "
-        className="w-full h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200 text-lg   font-medium placeholder:text-slate-400 focus:outline-none tails-selected-element border-2 border-slate-600 rounded-2xl "
+        className="w-8/12 h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200 text-lg   font-medium placeholder:text-slate-400 focus:outline-none tails-selected-element border-2 border-slate-500 rounded "
         data-primary="indigo-800"
         onChange={(e) => setSearch(e.target.value)}
         data-dashlane-rid="ecf7b122e81b2461"
@@ -85,15 +89,9 @@ const Dashboard = () => {
         data-form-type="text"
         
       ></input>
-      {/* <p className="text-2xl font-semibold ml-14 mt-4  ">
-        Total Users :{" "}
-        <span className="text-2xl font-semibold  text-purple-600 hover:text-red-400">
-          {totalusers}
-        </span>{" "}
-      </p> */}
-      <div className="bg-red-500 hover:bg-red-600  items-center m-5 p-6 py-4 leading-none rounded text-lg  uppercase text-white font-bold inline-block">
-                <span>  ✓ Total Users : <span className="text-xl underline text-neutral-900" > {totalusers}</span>  </span>
-              </div>
+   
+
+      
       <div className="">
         <div className="grid  gap-6 m-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* ////// */}
@@ -120,7 +118,7 @@ const Dashboard = () => {
                     className="relative inline-block text-lg group"
                   >
                     <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-                      <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-violet-300"></span>
+                      <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-violet-400"></span>
                       <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
                       <span className="relative"> <span className="font-extrabold text-2xl " >⇱</span> Review Now  </span>
                     </span>
@@ -132,20 +130,29 @@ const Dashboard = () => {
                 </div>
 
                 <div className="flex border-t border-gray-600 divide-x divide-gray-400">
+                <Tooltip content="Hot Percetage">
                   <a
                     href="#_"
                     className="flex-1 block p-5 text-center text-gray-600 transition duration-200 ease-out hover:bg-gray-100 hover:text-gray-500"
                   >
+                     
                     <img
-                      src="data:image/jpeg;base64,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"
+                      src="https://www.freeiconspng.com/thumbs/flame-png/fire-vector-icon-png-27.png"
                       alt=""
-                      className="w-16 ml-1"
+                      className="w-8 ml-5 mt-3 mb-2"
                     />
+                   
                     <p>
-                      <b>{(Math.random() * 100).toFixed(2)}%</b>
-                    </p>
-                  </a>
+                   
+                   <b>{(Math.random() * 100).toFixed(2)}%</b>
+                 </p>
 
+                   
+                    
+                    
+                  </a>
+                  </Tooltip>
+                  <Tooltip content="Average of 10">
                   <a
                     href="#_"
                     className="flex-1 block p-5 text-center text-gray-400 transition duration-200 ease-out hover:bg-gray-100 hover:text-gray-500"
@@ -153,7 +160,7 @@ const Dashboard = () => {
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/3915/3915794.png"
                       alt=""
-                      className="w-14 ml-1 mb-2"
+                      className="w-12 ml-1 mb-2"
                     />
                     <p className="text-gray-500">
                       <b className="text-gray-600">
@@ -162,7 +169,9 @@ const Dashboard = () => {
                       /10
                     </p>
                   </a>
-
+                  </Tooltip>
+                  <Tooltip content="View on Instagram">
+                  
                   <a
                     href={`https://www.instagram.com/${profile.instaId}/`}
                     target="_blank"
@@ -176,6 +185,8 @@ const Dashboard = () => {
                     />
                     
                   </a>
+                  </Tooltip>
+
                   
                 </div>
               </div>
@@ -200,7 +211,7 @@ const Dashboard = () => {
         <h2 class="text-lg font-medium">Sanjay</h2>
         <p class="text-gray-600">Age : 20 </p>
 
-        {/* <p class="text-gray-600 mb-3">Section : DS-A</p> */}
+        
         <a
           href="https://github.com/sanjay-sol"
           class="relative inline-block text-lg group" target="_blank" rel="noreferrer"
@@ -231,7 +242,7 @@ const Dashboard = () => {
         <h2 class="text-lg font-medium">Vikas Rushi</h2>
         <p class="text-gray-600">Age : 20 </p>
 
-        {/* <p class="text-gray-600 mb-3">Section : DS-A</p> */}
+       
         <a
           href="https://github.com/0xVikasRushi"
           class="relative inline-block text-lg group" target="_blank" rel="noreferrer"

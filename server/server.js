@@ -54,6 +54,10 @@ app.post("/register", async (req, res) => {
       return res.status(400).send("Fill all Fields");
 
     }
+    if (password.length <= 5 ){
+      return res.status(400).send("Password must contain more than 5 characters");
+
+    }
     let newUser = new registeruser({
       fullname,
       username,

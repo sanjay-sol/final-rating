@@ -225,8 +225,11 @@ const handlefile = (e) => {
             <div className="input_field flex flex-col w-max mx-auto text-center">
                 <label>
                     <input className="text-sm cursor-pointer w-36 hidden" type="file"  onChange={handlefile}  />
+                    {imagename === "DROP YOUR IMAGE" ?  
                     <div className="text bg-indigo-600 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-indigo-500">Upload</div>
-                </label>
+                   : <div className="text bg-indigo-600 text-white border border-gray-300 rounded font-semibold  p-1 px-3 hover:bg-indigo-500 cursor-not-allowed " disabled>Uploaded</div> }
+                     
+                    </label>
 
                 <div className="title text-indigo-500 uppercase">{imagename}</div>
             </div>
