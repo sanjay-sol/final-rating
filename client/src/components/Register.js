@@ -4,6 +4,8 @@ import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import data from './cloud.json';
+
 // import Alert from "./Alert";
 const propTypes = {};
 
@@ -13,14 +15,15 @@ const defaultProps = {};
  *
  */
 const Register = () => {
+  const randomnumber = (Math.random() * 10).toFixed(0)
   const preset_key = "x5orflhb";
   const cloud_name = "dgo3xjjvb";
   const [fullname1, setFullname1] = useState("");
   const [username1, setUsername1] = useState("");
   const [instaId1, setInstaId1] = useState("");
-  const [versionid1 , setversionid1] = useState(`1679824466`);
-  const [publicid1 , setpublicid1] = useState(`aq9ei6rjax74ifyhy12b`);
-  const [format1 , setformat1] = useState(`jpg`);
+  const [versionid1 , setversionid1] = useState(data[randomnumber].versionid1);
+  const [publicid1 , setpublicid1] = useState(data[randomnumber].publicid1);
+  const [format1 , setformat1] = useState(data[randomnumber].format);
 
   // const [profileurl1, setprofileurl1] = useState(`https://res.cloudinary.com/dgo3xjjvb/image/upload/v1679824466/aq9ei6rjax74ifyhy12b.jpg`);
 

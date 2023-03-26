@@ -142,8 +142,8 @@ const MyProfile = () => {
         Your Reviews
       </h4>
       {review ? (
-        review.map((review) => (
-          <blockquote
+        review.map((review , index ) => (
+          <blockquote key={index}
             className="flex items-center justify-between w-11/12 m-6 col-span-1 p-6 bg-white rounded-lg shadow  border-black border-2 tails-selected-element "
             data-rounded="rounded-lg"
             data-rounded-max="rounded-full"
@@ -151,7 +151,7 @@ const MyProfile = () => {
             <div className="flex flex-col pr-8 ">
               <div className="relative pl-12">
                 <p>
-                  by.{" "}
+                 ► by.{" "}
                   <span className="mt-2 text-2xl font-extrabold text-red-900 underline ">
                     {" "}
                     {review.giver}
@@ -182,7 +182,7 @@ const MyProfile = () => {
               <div className="relative pl-12">
                 <p className="text-black font-extrabold underline">Advice : </p>
                 <span className="mt-2 text-sm text-red-900 sm:text-base lg:text-sm xl:text-base">
-                  {review.comment}
+                 ☞ {review.comment}
                 </span>
               </div>
             </div>

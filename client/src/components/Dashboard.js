@@ -71,17 +71,19 @@ const Dashboard = () => {
           </li>
         </ul>
       </nav>
+      
       <input
         type="text"
         value={search}
         placeholder="Search by Fullname  🔎 "
-        className="w-full h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200 text-lg   font-medium placeholder:text-slate-400 focus:outline-none tails-selected-element border-2 border-slate-600 rounded-2xl"
+        className="w-full h-12 px-6 py-2 mt-4 ml-3 mr-2 bg-slate-200 text-lg   font-medium placeholder:text-slate-400 focus:outline-none tails-selected-element border-2 border-slate-600 rounded-2xl "
         data-primary="indigo-800"
         onChange={(e) => setSearch(e.target.value)}
         data-dashlane-rid="ecf7b122e81b2461"
         data-kwimpalastatus="alive"
         data-kwimpalaid="1678604518890-0"
         data-form-type="text"
+        
       ></input>
       {/* <p className="text-2xl font-semibold ml-14 mt-4  ">
         Total Users :{" "}
@@ -96,8 +98,8 @@ const Dashboard = () => {
         <div className="grid  gap-6 m-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* ////// */}
           {data.length >= 1 ? (
-            data.filter(profile => profile.fullname.toLowerCase().includes(search.toLowerCase())).map((profile) => (
-              <div className="w-full border mt-5 border-gray-600 rounded-lg shadow-black shadow-lg hover:shadow-violet-600 hover:shadow-2xl">
+            data.filter(profile => profile.fullname.toLowerCase().includes(search.toLowerCase())).map((profile , index) => (
+              <div key={index} className="w-full border mt-5 border-gray-600 rounded-lg shadow-black shadow-lg hover:shadow-violet-600 hover:shadow-2xl">
                 <div className="flex flex-col items-center justify-center p-10">
                 <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${profile.versionid}/${profile.publicid}.${profile.format}`} target="_blank" rel="noreferrer" className="block">
 

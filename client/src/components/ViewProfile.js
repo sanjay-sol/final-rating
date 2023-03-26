@@ -131,7 +131,7 @@ const ViewProfile = () => {
           <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`} target="_blank" rel="noreferrer" className="block">
             <img
             
-              className="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
+              className=" w-full h-full rounded-lg max-h-64 sm:max-h-96"
               src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`}
 
               alt="img"
