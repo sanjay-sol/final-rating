@@ -128,11 +128,13 @@ const ViewProfile = () => {
 
       <div className="flex flex-col mt-5 items-center sm:px-5 md:flex-row border-4 tails-selected-element ">
         <div className="w-full md:w-1/2 m-3">
-          <a href="#_" className="block">
+          <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`} target="_blank" rel="noreferrer" className="block">
             <img
+            
               className="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
-              src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg"
-              alt="profile"
+              src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`}
+
+              alt="img"
             />
           </a>
         </div>
@@ -171,7 +173,7 @@ const ViewProfile = () => {
             />
           </div>
           <div className="relative">
-            <label className="font-medium text-gray-900">Your Advice</label>
+            <label className="font-medium text-gray-900">You have any Advice for them ???</label>
             <input
               type="text"
               className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 border-2 border-slate-400"
@@ -205,7 +207,7 @@ const ViewProfile = () => {
             </div>
           </div>
           <div className="relative">
-            {rating <= 10 ? (
+            {rating <= 10 &&   rating > 0  ? (
               <button
                 type="button"
                 className='inline-block w-40 px-5 ml-3.5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg'
@@ -216,10 +218,10 @@ const ViewProfile = () => {
             ) : (
               <button
                 type="button"
-                className='inline-block w-40 px-5 ml-3.5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg '
-                disabled
+                className='inline-block w-40 px-5 ml-3.5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg cursor-not-allowed '
+                disabled 
               >
-                Rate only for 10 !!!
+                Rate 1-10 only !!!
               </button>
             )}
 

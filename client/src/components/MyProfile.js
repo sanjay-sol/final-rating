@@ -11,6 +11,7 @@ const defaultProps = {};
 const MyProfile = () => {
   const [data, setdata] = useState(null);
   const [review, setReview] = useState([]);
+  
 
   useEffect(() => {
     axios
@@ -31,7 +32,7 @@ const MyProfile = () => {
   if (!localStorage.getItem("token")) {
     return <Navigate to="/login" />;
   }
-
+//https://res.cloudinary.com/dgo3xjjvb/image/upload/v1679824466/aq9ei6rjax74ifyhy12b.jpg
   const sum = review
     .map((profile) => profile.rating)
     .reduce((prev, curr) => Number(prev) + Number(curr), 0);
@@ -75,10 +76,10 @@ const MyProfile = () => {
       {data && (
         <div className="flex flex-col mt-5 items-center sm:px-5 md:flex-row border-4 tails-selected-element ">
           <div className="w-full md:w-1/2 m-3">
-            <a href="#_" className="block">
+            <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${data.versionid}/${data.publicid}.${data.format}`} target="_blank" rel="noreferrer" className="block">
               <img
-                className="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
-                src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg"
+                className=" w-full h-full rounded-lg max-h-64 sm:max-h-96"
+                src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${data.versionid}/${data.publicid}.${data.format}`}
                 alt="profile"
               />
             </a>
@@ -94,7 +95,7 @@ const MyProfile = () => {
               </h1>
               <p className="pt-2 text-sm font-medium">
                 {" "}
-                Fullname : {data.fullname}{" "}
+                Fullname :  {data.fullname}{" "}
               </p>
               <p className=" text-sm font-medium">
                 {" "}
@@ -154,6 +155,7 @@ const MyProfile = () => {
                   <span className="mt-2 text-2xl font-extrabold text-red-900 underline ">
                     {" "}
                     {review.giver}
+                   
                   </span>
                 </p>
               </div>
@@ -186,8 +188,8 @@ const MyProfile = () => {
             </div>
             <img
               className="flex-shrink-0 w-20 h-20 bg-gray-300 rounded-full xl:w-24 xl:h-24"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6rVX2wBmpOg9wwUOTRq5zgtYKDKhzGvBOAA&usqp=CAU"
-              alt=""
+              src="images/reviewer.png"
+              alt="img"
             />
           </blockquote>
         ))

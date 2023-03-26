@@ -13,9 +13,21 @@ const registeruser = new mongoose.Schema({
     instaId:{
         type: String,
     },
+    versionid:{
+        type: String,
+        
+    },
+    publicid:{
+        type: String,
+        
+    },
+    format:{
+        type: String,
+        
+    },
     age:{
         type: String,
-        required: true,
+        
         default: '19',
     },
     email:{
@@ -24,7 +36,7 @@ const registeruser = new mongoose.Schema({
     },
     section:{
         type: String,
-        required: true,
+        
         default:'CSE',
     },
     password:{
@@ -38,7 +50,7 @@ const registeruser = new mongoose.Schema({
 })
 
 registeruser.pre('save', async function (next){
-    console.log("Hashing passwords....");
+    console.log("Hashing User Data with bcrypt....");
     if(this.isModified('password')){
         this.password = await bcrypt.hash(this.password , 12)
         this.confirmpassword = await bcrypt.hash(this.confirmpassword , 12)

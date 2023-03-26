@@ -27,7 +27,7 @@ function App() {
       <Route path="/privacy1" element={<Privacy1/>}/>
       <Route path="/redirects" element={<Redirects/>}/>
 
-      <Route path="/viewprofile/:fullname/:id" element={<ViewProfile/>}/>
+      <Route path="/viewprofile/:fullname/:id/:versionid/:publicid/:format" element={<ViewProfile/>}/>
 
 
       <Route path="*" element={<PageNotFound/>}/>
