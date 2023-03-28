@@ -93,7 +93,7 @@ const handlefile = (e) => {
       confirmpassword: confirmpassword1,
     };
     axios
-      .post("http://localhost:3001/register", user)
+      .post(`${process.env.REACT_APP_API_KEY}/register`, user)
       .then((res) => {
         // toast(res.data);
         toast.success(res.data, {

@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/allprofiles", {
+      .get(`${process.env.REACT_APP_API_KEY}/allprofiles`, {
         headers: {
           "x-token": localStorage.getItem("token"),
         },
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:3001/myprofile", {
+      .get(`${process.env.REACT_APP_API_KEY}/myprofile`, {
         headers: {
           "x-token": token,
           "Content-Type": "application/json",

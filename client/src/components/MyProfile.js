@@ -11,18 +11,17 @@ const defaultProps = {};
 const MyProfile = () => {
   const [data, setdata] = useState(null);
   const [review, setReview] = useState([]);
-  
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/myprofile", {
+      .get(`${process.env.REACT_APP_API_KEY}/myprofile`, {
         headers: {
           "x-token": localStorage.getItem("token"),
         },
       })
       .then((res) => setdata(res.data));
     axios
-      .get("http://localhost:3001/myreviews", {
+      .get(`${process.env.REACT_APP_API_KEY}/myreviews`, {
         headers: {
           "x-token": localStorage.getItem("token"),
         },
@@ -32,7 +31,7 @@ const MyProfile = () => {
   if (!localStorage.getItem("token")) {
     return <Navigate to="/login" />;
   }
-//https://res.cloudinary.com/dgo3xjjvb/image/upload/v1679824466/aq9ei6rjax74ifyhy12b.jpg
+  //https://res.cloudinary.com/dgo3xjjvb/image/upload/v1679824466/aq9ei6rjax74ifyhy12b.jpg
   const sum = review
     .map((profile) => profile.rating)
     .reduce((prev, curr) => Number(prev) + Number(curr), 0);
@@ -42,11 +41,7 @@ const MyProfile = () => {
   return (
     <>
       <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
-        <img
-          className="h-20 rounded"
-          src="images/hn2.png"
-          alt="img"
-        />
+        <img className="h-20 rounded" src="images/hn2.png" alt="img" />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
           <li className="cursor-pointer font-extrabold hover:text-indigo-900">
             <Link to="/dashboard">Dashboard</Link>
@@ -56,7 +51,7 @@ const MyProfile = () => {
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
             <Link to="/login" onClick={() => localStorage.removeItem("token")}>
-             ⛔︎ Logout
+              ⛔︎ Logout
             </Link>
           </li>
         </ul>
@@ -76,7 +71,12 @@ const MyProfile = () => {
       {data && (
         <div className="flex flex-col mt-5 items-center sm:px-5 md:flex-row border-4 tails-selected-element ">
           <div className="w-full md:w-1/2 m-3">
-            <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${data.versionid}/${data.publicid}.${data.format}`} target="_blank" rel="noreferrer" className="block">
+            <a
+              href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${data.versionid}/${data.publicid}.${data.format}`}
+              target="_blank"
+              rel="noreferrer"
+              className="block"
+            >
               <img
                 className=" w-full h-full rounded-lg max-h-64 sm:max-h-96"
                 src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${data.versionid}/${data.publicid}.${data.format}`}
@@ -95,7 +95,7 @@ const MyProfile = () => {
               </h1>
               <p className="pt-2 text-sm font-medium">
                 {" "}
-                Fullname :  {data.fullname}{" "}
+                Fullname : {data.fullname}{" "}
               </p>
               <p className=" text-sm font-medium">
                 {" "}
@@ -142,8 +142,9 @@ const MyProfile = () => {
         Your Reviews
       </h4>
       {review ? (
-        review.map((review , index ) => (
-          <blockquote key={index}
+        review.map((review, index) => (
+          <blockquote
+            key={index}
             className="flex items-center justify-between w-11/12 m-6 col-span-1 p-6 bg-white rounded-lg shadow  border-black border-2 tails-selected-element "
             data-rounded="rounded-lg"
             data-rounded-max="rounded-full"
@@ -151,11 +152,10 @@ const MyProfile = () => {
             <div className="flex flex-col pr-8 ">
               <div className="relative pl-12">
                 <p>
-                 ► by.{" "}
+                  ► by.{" "}
                   <span className="mt-2 text-2xl font-extrabold text-red-900 underline ">
                     {" "}
                     {review.giver}
-                   
                   </span>
                 </p>
               </div>
@@ -182,7 +182,7 @@ const MyProfile = () => {
               <div className="relative pl-12">
                 <p className="text-black font-extrabold underline">Advice : </p>
                 <span className="mt-2 text-sm text-red-900 sm:text-base lg:text-sm xl:text-base">
-                 ☞ {review.comment}
+                  ☞ {review.comment}
                 </span>
               </div>
             </div>

@@ -3,8 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const propTypes = {};
 
 const defaultProps = {};
@@ -25,7 +26,7 @@ const Login = () => {
       password: password1,
     };
     axios
-      .post("http://localhost:3001/login", user)
+      .post(`${process.env.REACT_APP_API_KEY}/login`, user)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         setAuth(true);
@@ -41,7 +42,7 @@ const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "colored",
-          });
+        });
       });
   };
   if (auth) {
@@ -83,7 +84,9 @@ const Login = () => {
             data-form-type="other"
           >
             <div className="relative">
-              <label className="font-medium text-gray-900">Email<span className="text-xl text-red-600 " > * </span></label>
+              <label className="font-medium text-gray-900">
+                Email<span className="text-xl text-red-600 "> * </span>
+              </label>
               <input
                 type="email"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
@@ -98,7 +101,9 @@ const Login = () => {
               />
             </div>
             <div className="relative">
-              <label className="font-medium text-gray-900">Password<span className="text-xl text-red-600 " > * </span></label>
+              <label className="font-medium text-gray-900">
+                Password<span className="text-xl text-red-600 "> * </span>
+              </label>
               <input
                 type="password"
                 className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"

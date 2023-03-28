@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Alert from "./Alert";
 const propTypes = {};
 
@@ -19,11 +19,10 @@ const ViewProfile = () => {
   const [giver, setgiver] = useState("");
   // const [alert, setAlert] = useState(null);
 
-
   const fetchData = () => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:3001/myprofile", {
+      .get(`${process.env.REACT_APP_API_KEY}/myprofile`, {
         headers: {
           "x-token": token,
           // ? content type should be json
@@ -54,7 +53,7 @@ const ViewProfile = () => {
       likes,
     };
     axios
-      .post("http://localhost:3001/addreview", review, {
+      .post(`${process.env.REACT_APP_API_KEY}/addreview`, review, {
         headers: {
           "x-token": token,
         },
@@ -70,7 +69,7 @@ const ViewProfile = () => {
           draggable: true,
           progress: undefined,
           theme: "colored",
-          });
+        });
         // setAlert({
         //   message: res.data ,
         //   type: 'success',
@@ -84,11 +83,7 @@ const ViewProfile = () => {
   return (
     <>
       <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
-        <img
-          className="h-20 rounded"
-          src="/images/hn2.png"
-          alt="img"
-        />
+        <img className="h-20 rounded" src="/images/hn2.png" alt="img" />
         <ul className="px-32 py-4 mt-4 flex space-x-12 justify-end ">
           <li className="cursor-pointer font-extrabold hover:text-indigo-900">
             <Link to="/myprofile">My Profile</Link>
@@ -97,7 +92,10 @@ const ViewProfile = () => {
             <Link to="/privacy">Privacy</Link>
           </li>
           <li className="cursor-pointer text-red-500 font-extrabold">
-            <Link to="/login" onClick={() => localStorage.removeItem("token")} > ⛔︎ Logout</Link>
+            <Link to="/login" onClick={() => localStorage.removeItem("token")}>
+              {" "}
+              ⛔︎ Logout
+            </Link>
           </li>
         </ul>
       </nav>
@@ -128,12 +126,15 @@ const ViewProfile = () => {
 
       <div className="flex flex-col mt-5 items-center sm:px-5 md:flex-row border-4 tails-selected-element ">
         <div className="w-full md:w-1/2 m-3">
-          <a href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`} target="_blank" rel="noreferrer" className="block">
+          <a
+            href={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`}
+            target="_blank"
+            rel="noreferrer"
+            className="block"
+          >
             <img
-            
               className=" w-full h-full rounded-lg max-h-64 sm:max-h-96"
               src={`https://res.cloudinary.com/dgo3xjjvb/image/upload/v${params.versionid}/${params.publicid}.${params.format}`}
-
               alt="img"
             />
           </a>
@@ -173,7 +174,9 @@ const ViewProfile = () => {
             />
           </div>
           <div className="relative">
-            <label className="font-medium text-gray-900">You have any Advice for them ???</label>
+            <label className="font-medium text-gray-900">
+              You have any Advice for them ???
+            </label>
             <input
               type="text"
               className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 border-2 border-slate-400"
@@ -194,7 +197,9 @@ const ViewProfile = () => {
                   className="w-6 h-6 rounded"
                   onClick={() => setlikes("Yes")}
                 />
-                <span className="ml-2 font-extrabold text-orange-600">Hot </span>
+                <span className="ml-2 font-extrabold text-orange-600">
+                  Hot{" "}
+                </span>
               </label>
             </div>
           </div>
@@ -207,7 +212,7 @@ const ViewProfile = () => {
             </div>
           </div>
           <div className="relative">
-            {rating <= 10 &&   rating > 0  ? (
+            {rating <= 10 && rating > 0 ? (
               <button
                 type="button"
                 className='inline-block w-40 px-5 ml-3.5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg'
@@ -219,7 +224,7 @@ const ViewProfile = () => {
               <button
                 type="button"
                 className='inline-block w-40 px-5 ml-3.5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg cursor-not-allowed '
-                disabled 
+                disabled
               >
                 Rate 1-10 only !!!
               </button>
