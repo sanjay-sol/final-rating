@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 function middleware(req, res, next) {
   try {
@@ -7,7 +6,7 @@ function middleware(req, res, next) {
     if (!token) {
       return res.status(400).send("Token not found");
     }
-    const decodedToken = jwt.verify(token, process.env.JWT_PASSWORD);
+    const decodedToken = jwt.verify(token, "jwtPassword");
     req.user = decodedToken.user;
     next();
   } catch (error) {
