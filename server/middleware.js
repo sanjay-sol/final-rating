@@ -1,19 +1,19 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config()
-module.exports = function(req ,res , next) {
-    try {
-        let token = req.header('x-token');
-        if (!token){
-            return res.status(400).send("token not found")
-        }
-        let decode = jwt.verify(token , process.env.JWT_PASSWORD);
-        req.user = decode.user;
-        next();
-        
-    } catch (error) {
-        console.log("error");
-        return res.status(400).send("Unable to login middleware")
-        
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+function middleware(req, res, next) {
+  try {
+    const token = req.headers["x-token"];
+    if (!token) {
+      return res.status(400).send("Token not found");
     }
-    
+    const decodedToken = jwt.verify(token, process.env.JWT_PASSWORD);
+    req.user = decodedToken.user;
+    next();
+  } catch (error) {
+    console.error(`Error authenticating token: ${error.message}`);
+    return res.status(400).send("Unable to authenticate token");
+  }
 }
+
+module.exports = middleware;

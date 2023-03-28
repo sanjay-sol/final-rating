@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 const registeruser = require("./usermodel");
@@ -50,13 +50,21 @@ app.post("/register", async (req, res) => {
     if (password != confirmpassword) {
       return res.status(400).send("Passswords doesn't match");
     }
-    if (!fullname || !username || !age || !email || !section || !password || !confirmpassword ) {
+    if (
+      !fullname ||
+      !username ||
+      !age ||
+      !email ||
+      !section ||
+      !password ||
+      !confirmpassword
+    ) {
       return res.status(400).send("Fill all Fields");
-
     }
-    if (password.length <= 5 ){
-      return res.status(400).send("Password must contain more than 5 characters");
-
+    if (password.length <= 5) {
+      return res
+        .status(400)
+        .send("Password must contain more than 5 characters");
     }
     let newUser = new registeruser({
       fullname,
@@ -88,7 +96,7 @@ app.post("/login", async (req, res) => {
     if (!exist) {
       return res.status(400).send("Email does not exist");
     }
-    const isMatch = await bcrypt.compare(password , exist.password);
+    const isMatch = await bcrypt.compare(password, exist.password);
     if (!isMatch) {
       return res.status(400).send("Invalid password");
     }
