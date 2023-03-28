@@ -7,7 +7,10 @@ function middleware(req, res, next) {
     if (!token) {
       return res.status(400).send("Token not found");
     }
-    const decodedToken = jwt.verify(token, "jwtPassword");
+    const decodedToken = jwt.verify(
+      token,
+      process.env.JWT_PASSWORD || "jwtPassword"
+    );
     req.user = decodedToken.user;
     next();
   } catch (error) {
