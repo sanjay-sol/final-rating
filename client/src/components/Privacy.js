@@ -10,13 +10,13 @@ const defaultProps = {};
 const Privacy = () => {
   return (
     <>
-      <nav className=" bg-white flex justify-between py-2 pl-2 border-b-2 border-b-white">
+      <nav className=" container mx-auto flex flex-wrap items-center justify-between">
         <img
           className="h-20 rounded"
           src="images/hn2.png"
           alt="img"
         />
-        <ul className="px-4 py-4 mt-4 flex space-x-12 justify-end ">
+        <ul className="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium ">
           <li className="cursor-pointer font-extrabold hover:text-indigo-900">
             <Link to="/myprofile">My Profile</Link>
           </li>

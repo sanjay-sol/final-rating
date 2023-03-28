@@ -123,7 +123,7 @@ const handlefile = (e) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored",
+          theme: "colored", 
           });
       });
   };
@@ -153,7 +153,7 @@ const handlefile = (e) => {
         </ul>
       </nav>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-start justify-start w-screen h-full p-10 lg:p-16 xl:p-24 tails-selected-element">
+        <div className="flex flex-col items-start justify-start w-screen mt-4 bg-slate-300 rounded-xl h-full p-10 lg:p-16 xl:p-24 tails-selected-element">
           <h4 className="w-full text-3xl font-bold">Register</h4>
           <p className="text-lg text-gray-500">
             wait !! , I Already have an Account..!!{" "}
@@ -174,7 +174,7 @@ const handlefile = (e) => {
               <label className="font-medium text-gray-900">Full Name<span className="text-xl text-red-600 " > * </span> </label>
               <input
                 type="text"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setFullname1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -187,7 +187,7 @@ const handlefile = (e) => {
               <label className="font-medium text-gray-900">User Name <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="text"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setUsername1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -202,7 +202,7 @@ const handlefile = (e) => {
               </label>
               <input
                 type="text"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setInstaId1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -245,7 +245,7 @@ const handlefile = (e) => {
               <label className="font-medium text-gray-900">Age <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="number"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setAge1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -258,7 +258,7 @@ const handlefile = (e) => {
               <label className="font-medium text-gray-900">Email <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="email"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setEmail1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -272,7 +272,7 @@ const handlefile = (e) => {
             <p className="font-medium text-gray-900">Section <span className="text-xl text-red-600 " > * </span></p>
             <select
               id="mySelect"
-              className="border-2 w-44 h-10 bg-gray-200 rounded"
+              className="border-2 w-44 h-10 bg-white rounded"
               onChange={getValue}
             >
               <option value="CSE">Select</option>
@@ -295,7 +295,7 @@ const handlefile = (e) => {
               <label className="font-medium text-gray-900">Password <span className="text-xl text-red-600 " > * </span></label>
               <input
                 type="password"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setPassword1(e.target.value)}
                 data-rounded="rounded-lg"
@@ -312,7 +312,7 @@ const handlefile = (e) => {
               </label>
               <input
                 type="password"
-                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-white rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                 data-primary="blue-600"
                 onChange={(e) => setConfirmpassword1(e.target.value)}
                 data-rounded="rounded-lg"
