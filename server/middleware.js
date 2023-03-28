@@ -1,3 +1,4 @@
+// middleware function to authenticate JWT token
 const jwt = require("jsonwebtoken");
 
 function middleware(req, res, next) {
